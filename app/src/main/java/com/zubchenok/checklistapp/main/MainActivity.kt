@@ -18,15 +18,14 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
-
 		viewModel.allItems.observe(this, Observer {
 			if (it != null && !it.isEmpty()) {
-				text_view.text = it[0].text
+				text_view.text = it[0].id.toString()
 			}
 		})
 
 		btn_add_item.setOnClickListener {
-			viewModel.saveItem(Item(12, "test text", false))
+			viewModel.saveItem(Item(text = "test text", isChecked = false))
 		}
 	}
 }

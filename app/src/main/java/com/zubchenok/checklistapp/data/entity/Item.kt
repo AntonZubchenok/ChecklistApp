@@ -12,8 +12,7 @@ import android.support.annotation.NonNull
 @Entity(tableName = "items")
 data class Item(
 		@PrimaryKey(autoGenerate = true)
-		@NonNull
-		var id: Int,
+		var id: Int? = null,
 
 		@NonNull
 		var text: String,

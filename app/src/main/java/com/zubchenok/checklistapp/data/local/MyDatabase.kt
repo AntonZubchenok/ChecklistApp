@@ -24,7 +24,6 @@ abstract class MyDatabase : RoomDatabase() {
 			synchronized(lock) {
 				if (INSTANCE == null) {
 					INSTANCE = Room.databaseBuilder(context.applicationContext, MyDatabase::class.java, "MyDatabase.db")
-							.allowMainThreadQueries()
 							.fallbackToDestructiveMigration() //delete old database if new database have another schema
 							.build()
 				}

@@ -4,6 +4,7 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import com.zubchenok.checklistapp.data.Repository
 import com.zubchenok.checklistapp.data.entity.Item
+import kotlin.concurrent.thread
 
 /**
  * Created by Anton Zubchenok
@@ -11,7 +12,7 @@ import com.zubchenok.checklistapp.data.entity.Item
  */
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-	private val repository: Repository = Repository(application)
+	private val repository: Repository = Repository.getInstance(application)
 	var allItems = repository.getItems()
 
 	fun saveItem(item: Item) {
